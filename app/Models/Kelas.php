@@ -14,7 +14,10 @@ protected $table = "kelas";
         "nama_kelas",
     ];
 
-    public function kelas(){
-        return $this->belongsTo(UserModel::class);
+    public function user(){
+        return $this->hasMany(UserModel::class);
+    }
+    public function getKelas(){
+        return $this->all();
     }
 }

@@ -4,6 +4,7 @@ use App\Http\Controllers\InfoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\UserController;   
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +31,9 @@ Route::get('/tampil', function () {
 
 Route::get('/profile/{nama}/{npm}/{kelas}',[ProfileController::class,'profile']);
 Route::get('/menu',[MenuController::class,'menu']);
+
+Route::get('/user',[UserController::class,'index']);
+Route::get('/user/create',[UserController::class,'create'])->name('user.create');
+Route::get('/user/store',[UserController::class,'store'])->name('user.store');
+
 
