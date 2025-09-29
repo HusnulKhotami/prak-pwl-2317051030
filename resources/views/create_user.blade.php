@@ -11,8 +11,8 @@
             <label for="nama">Nama:</label>
             <input type="text" id="nama" name="nama"><br><br>
 
-            <label for="npm">NPM:</label>
-            <input type="text" id="npm" name="npm"><br><br>
+            <label for="nim">NPM:</label>
+            <input type="text" id="npm" name="nim"><br><br>
 
             <label for="kelas">Kelas:</label>
             <select name="kelas_id" id="kelas_id">
