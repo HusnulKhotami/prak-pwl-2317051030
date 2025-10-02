@@ -1,26 +1,49 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 style="margin-bottom: 20px;">Daftar Pengguna</h1>
+<div class="container my-5">
 
-    <table style="width: 100%; border-collapse: collapse; text-align: left; font-family: Arial, sans-serif;">
-        <thead>
-            <tr style="background-color: #4CAF50; color: white;">
-                <th style="padding: 10px; border: 1px solid #ddd;">ID</th>
-                <th style="padding: 10px; border: 1px solid #ddd;">Nama</th>
-                <th style="padding: 10px; border: 1px solid #ddd;">NPM</th>
-                <th style="padding: 10px; border: 1px solid #ddd;">Kelas</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($users as $user )
-                <tr style="background-color: {{ $loop->odd ? '#f9f9f9' : '#ffffff' }};">
-                    <td style="padding: 10px; border: 1px solid #ddd;">{{ $user->id }}</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">{{ $user->nama }}</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">{{ $user->nim }}</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">{{ $user->nama_kelas }}</td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
+    <!-- Header -->
+    <header class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h3 class="fw-bold" style="color: #4CAF50;">Daftar User</h3>
+            <p class="text-muted small mb-0">Data pengguna yang sudah terdaftar di sistem.</p>
+        </div>
+        <a href="{{ route('user.create') }}" class="btn text-white rounded-3 px-3 shadow-sm" style="background-color: #4CAF50;">
+            + Tambah User
+        </a>
+    </header>
+
+    <!-- Tabel -->
+    <div class="card shadow-sm border-0 rounded-4">
+        <div class="card-body p-0">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="custom-header">
+                    <tr>
+                        <th scope="col" class="px-3 py-3">No</th>
+                        <th scope="col" class="px-3 py-3">Nama</th>
+                        <th scope="col" class="px-3 py-3">NPM</th>
+                        <th scope="col" class="px-3 py-3">Kelas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse ($users as $user)
+                        <tr>
+                            <td class="px-3 py-3 fw-semibold">{{ $loop->iteration }}</td>
+                            <td class="px-3 py-3">{{ $user->nama }}</td>
+                            <td class="px-3 py-3">{{ $user->nim }}</td>
+                            <td class="px-3 py-3">{{ $user->nama_kelas }}</td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="4" class="text-center text-muted py-4">
+                                <i class="bi bi-exclamation-circle"></i> Belum ada data pengguna.
+                            </td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 @endsection
