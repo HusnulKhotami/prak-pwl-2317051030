@@ -32,8 +32,8 @@ Route::get('/tampil', function () {
 Route::get('/profile/{nama}/{npm}/{kelas}',[ProfileController::class,'profile']);
 Route::get('/menu',[MenuController::class,'menu']);
 
-Route::get('/user',[UserController::class,'index']);
+Route::get('/user',[UserController::class,'index'])->name('user.index');
 Route::get('/user/create',[UserController::class,'create'])->name('user.create');
-Route::get('/user/store',[UserController::class,'store'])->name('user.store');
+Route::post('/user/store',[UserController::class,'store'])->name('user.store');
 
 
