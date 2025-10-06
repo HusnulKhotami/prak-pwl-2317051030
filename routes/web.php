@@ -4,6 +4,8 @@ use App\Http\Controllers\InfoController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\UserController;   
+use App\Http\Controllers\MataKuliahController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +32,13 @@ Route::get('/tampil', function () {
 
 Route::get('/profile/{nama}/{npm}/{kelas}',[ProfileController::class,'profile']);
 Route::get('/menu',[MenuController::class,'menu']);
+
+Route::get('/user',[UserController::class,'index'])->name('user.index');
+Route::get('/user/create',[UserController::class,'create'])->name('user.create');
+Route::post('/user/store',[UserController::class,'store'])->name('user.store');
+
+Route::get('/matakuliah',[MataKuliahController::class,'index']);
+Route::get('/matakuliah/create',[MataKuliahController::class,'create'])->name('matakuliah.create');
+Route::post('/matakuliah',[MataKuliahController::class,'store'])->name('matakuliah.store');
+
 
