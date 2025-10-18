@@ -5,7 +5,7 @@
 
     <!-- Header -->
     <div class="text-center mb-4">
-        <h2 class="fw-bold text-success background-color red"> {{ $title }}</h2>
+        <h2 class="fw-bold text-success"> {{ $title }}</h2>
         <p class="text-muted">Isi form berikut untuk menambahkan mata kuliah baru.</p>
     </div>
 
@@ -21,7 +21,7 @@
 
             <div class="mb-3">
                 <label class="form-label fw-semibold">Jumlah SKS</label>
-                <input type="number" name="sks" class="form-control rounded-3 shadow-sm" min="1" max="3" required>
+                <input type="number" name="sks" class="form-control rounded-3 shadow-sm" required>
             </div>
 
             <div class="d-flex justify-content-between mt-4">

@@ -7,6 +7,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UserController;   
 use App\Http\Controllers\MataKuliahController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +22,18 @@ use App\Http\Controllers\MataKuliahController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
 
 Route::get('/tampil', function () {
     return view('home');
@@ -43,4 +56,5 @@ Route::post('/matakuliah',[MataKuliahController::class,'store'])->name('matakuli
 Route::get('/matakuliah/{id}/edit',[MataKuliahController::class, 'edit']) -> name('matakuliah.edit');
 Route::put('/matakuliah/{id}',[MataKuliahController::class,'update']) -> name('matakuliah.update');
 Route::delete('/matakuliah/{id}',[MataKuliahController::class,'destroy']) -> name('matakuliah.destroy');
+
 
