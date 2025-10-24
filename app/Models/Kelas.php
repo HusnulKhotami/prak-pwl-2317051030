@@ -8,16 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Kelas extends Model
 {
     use HasFactory;
-    
-protected $table = "kelas";
-    protected $fillable = [
-        "nama_kelas",
-    ];
 
-    public function user(){
+    protected $table = 'kelas';
+    protected $fillable = ['nama_kelas'];
+
+    public function user()
+    {
         return $this->hasMany(UserModel::class);
     }
-    public function getKelas(){
-        return $this->all();
+
+    // ubah jadi statis
+    public static function getKelas()
+    {
+        return self::all();
     }
 }
