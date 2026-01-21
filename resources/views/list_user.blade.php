@@ -32,7 +32,7 @@
                             <td class="px-3 py-3 fw-semibold">{{ $loop->iteration }}</td>
                             <td class="px-3 py-3">{{ $user->nama }}</td>
                             <td class="px-3 py-3">{{ $user->nim }}</td>
-                            <td class="px-3 py-3">{{ $user->nama_kelas }}</td>
+                            <td class="px-3 py-3">{{ $user->kelas->nama_kelas }}</td>
                         </tr>
                     @empty
                         <tr>
